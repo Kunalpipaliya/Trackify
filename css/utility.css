@@ -1,0 +1,33 @@
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.items-center{
+    align-items: center;
+}
+.border{
+    border: 2px solid rgb(255, 255, 255);
+    margin: 3px;
+}
+.bg-black{
+    background-color: black;
+    color: white;
+}
+.bg-grey{
+    background-color: #121212;
+    color: #fff;
+}
+.rounded{
+    border-radius: 7px;
+}
+.m-1 {
+    margin: 5px;
+}
+.p-1{
+    padding: 10px; 
+}

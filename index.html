@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.css">
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/brands.min.css">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='5' y='7' width='3.5' height='10' rx='1.75' fill='%23A855F7'/><rect x='10.25' y='4' width='3.5' height='16' rx='1.75' fill='%23A855F7'/><rect x='15.5' y='7' width='3.5' height='10' rx='1.75' fill='%23A855F7'/></svg>">
+</head>
+
+<body class="bg-black">
+    <div class="container flex">
+        <div class="left">
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="flex justify-between">
+
+                    <div>
+
+                        <div class="logo flex items-center"><img src="wave.svg" alt=""><strong>Trackify</strong></div>
+                        <ul>
+                            <li class="items-center"><i class="fa-solid fa-house"></i>Home</li>
+                            <li class="items-center"><i class="fa-solid fa-magnifying-glass"></i>Search</li>
+                        </ul>
+                    </div>
+                    <i class="fa-solid fa-close close-btn"></i>
+                </div>
+            </div>
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading flex items-center justify-between">
+
+                    <h5>
+                        Your Library
+                    </h5>
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="songlist">
+
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="footer flex">
+                    <div><a href=""><span>Legal</span></a></div>
+
+                    <div><a href=""><span>Privacy Center</span></a></div>
+
+                    <div><a href=""><span>Privacy Policy</span></a></div>
+
+                    <div><a href=""><span>Cookies</span></a></div>
+
+                    <div><a href=""><span>About Ads</span></a></div>
+
+                    <div><a href=""><span>Accessibility</span></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="right bg-grey rounded">
+            <div class="header flex justify-between items-center ">
+                <div class="nav flex">
+                    <i class="fa-solid fa-bars"></i>
+
+                    <i class="fa-solid fa-angle-left"></i>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="buttons">
+                    <button class="signup-btn">Sign up</button>
+                    <button class="login-btn">Log in</button>
+                </div>
+            </div>
+            <div class="spotify-playlists p-1">
+                <h2>Spotify Playlists</h2>
+                <div class="card-container flex">
+
+                </div>
+                <div class="playbar">
+                    <div class="seekbar">
+                        <div class="circle">
+
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center above-bar">
+
+                        <div class="song-info"></div>
+                        <div class="songbuttons flex justify-center">
+                            <i id="previous" class="fa-solid fa-backward"></i>
+                            <i id="play" class="fa-solid fa-play"></i>
+                            <i id="next" class="fa-solid fa-forward"></i>
+                        </div>
+                        <div class="flex timevol items-center">
+
+                            <div class="song-time"></div>
+                            <div class="volume flex items-center" style="color: black;">
+
+                                <i class="fa-solid fa-volume-high"></i>
+                                <div class="range">
+                                    <input type="range" name="volume" id=""
+                                        style="accent-color: rgb(10, 255, 10); filter: invert(1);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
