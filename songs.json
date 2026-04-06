@@ -2,7 +2,9 @@
     "playlists":[
         {
             "folder": "animal",
-            "title":"Animal Playlist"
+            "title":"Animal Playlist",
+            "description":"The soundtrack to power and intensity.",
+            "songs":["Arjan Vailly.m4a"]
         }
     ]
 }
