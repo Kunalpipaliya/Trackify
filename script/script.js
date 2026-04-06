@@ -73,39 +73,37 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".song-time").innerHTML = "00:00 / 00:00"
 }
 async function displayAlbums() {
-    // 1. Fetch the manifest instead of the folder
-    let a = await fetch("/songs.json");
-    let data = await a.json();
-    
-    let cardcontainer = document.querySelector(".card-container");
-    cardcontainer.innerHTML = ""; // Clear container
-
-    for (const playlist of data.playlists) {
-        cardcontainer.innerHTML += `
-            <div data-folder="${playlist.folder}" class="card">
-                <div class="play">
-                    <i class="fa-solid fa-circle-play play-button"></i>
-                </div>
-                <img src="/songs/${playlist.folder}/cover.webp" alt="" class="rounded">
-                <h3>${playlist.title}</h3>
-                <p>${playlist.description}</p>
-            </div>`;
+    let a = await fetch(`/songs/`)
+    let response = await a.text()
+    let div = document.createElement("div")
+    div.innerHTML = response
+    let anchors = div.getElementsByTagName("a")
+    let cardcontainer = document.querySelector(".card-container")
+    let array = Array.from(anchors)
+    for (let index = 0; index < array.length; index++) {
+        const e = array[index]
+        if (e.href.includes("/songs/")) {
+            let folder = e.href.split("/").slice(-1)[0];
+            let a = await fetch(`/songs/${folder}/info.json`)
+            let response = await a.json()
+            cardcontainer.innerHTML = cardcontainer.innerHTML += `<div data-folder=${folder} class="card">
+                        <div class="play">
+                            <i class="fa-solid fa-circle-play play-button"></i>
+                        </div>
+                        <img src="/songs/${folder}/cover.webp" alt="" class="rounded">
+                        <h3>${response.title}</h3>
+                        <p>${response.description}</p>
+                    </div>`
+        }
     }
-
-    // Re-attach listeners...
+    // console.log(div);
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            // Use the list from our JSON instead of fetching a directory
-            const folderName = item.currentTarget.dataset.folder;
-            const selectedPlaylist = data.playlists.find(p => p.folder === folderName);
-            songs = selectedPlaylist.songs; 
-            currfolder = `songs/${folderName}`;
-            
-            // Update your UI and play first song
-            updateSongListUI(songs); 
-            playMusic(songs[0]);
-        });
-    });
+            songs=await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+            playMusic(songs[0])
+            play.classList.replace("fa-play","fa-pause")
+        })
+    })
 }
 async function main() {
     await getSongs(`songs/animal`)
